@@ -1,0 +1,27 @@
+default:
+  - clean:build
+  - jshint
+  - concat
+  - ngtemplates
+  - less
+  - envDev
+  - replace
+
+test:
+  - default
+  - instrument
+  - protractor_coverage
+  - default
+  - makeReport
+
+deploy:
+  - clean
+  - jshint
+  - concat
+  - ngtemplates
+  - uglify
+  - less
+  - envProd
+  - replace
+  - s3
+  - cloudfront
